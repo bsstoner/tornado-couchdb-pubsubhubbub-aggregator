@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="{{ request.path }}" method="post">
+	<label>Name:</label><br />
+	<input type="text" id="name" name="name" /><br />
+	<label>Url:</label><br />
+	<input type="text" id="feed_url" name="feed_url" /><br />
+	<input type="submit" name="submit" id="submit" value="Add Feed" />
+</form>
+{% for f in feeds %}
+	<a href='{{ escape(f["feed_url"]) }}'>{{ escape(f["name"]) }}</a>
+{% endfor %}
+{% endblock %}

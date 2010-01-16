@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<!--
+<form action="{{ request.path }}" method="post">
+	<label>Name:</label><br />
+	<input type="text" id="feedname" name="feedname" /><br />
+	<label>Url:</label><br />
+	<input type="text" id="feedurl" name="feedurl" /><br />
+	<input type="submit" name="submit" id="submit" value="Add Feed" />
+</form>
+-->
+<h2>super aggregator</h2>
+<ul id="entries">
+{% for e in entries %}
+	{% include "entry.html" %}
+{% end %}
+</ul>
+{% end %}
