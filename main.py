@@ -27,10 +27,6 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", MainHandler),
-            #(r"/auth/login", AuthLoginHandler),
-            #(r"/auth/logout", AuthLogoutHandler),
-            #(r"/feeds/([^/]+)", FeedEntriesHandler),
-            #(r"/feeds/add", FeedAddHandler),
             (r"/feeds/getupdates", ClientUpdatesHandler),
             (r"/feeds/update/?", FeedUpdateHandler),
         ]
@@ -39,10 +35,8 @@ class Application(tornado.web.Application):
             login_url="/auth/login",
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static")
-            #xsrf_cookies=True
         )
         tornado.web.Application.__init__(self, handlers, **settings)
-
 
 class BaseHandler(tornado.web.RequestHandler):
     @property
